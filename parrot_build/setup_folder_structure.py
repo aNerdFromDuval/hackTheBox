@@ -28,8 +28,8 @@ def main() -> None:
     args: List[str] = parser.parse_args()
 
     htb_dir = os.path.abspath(args.htb_dir)
-    parent_dirs: List[str] = list(args.parent_dirs)
-    children_dirs: List[str] = list(args.children_dirs)
+    parent_dirs: List[str] = [dir.strip() for dir in args.parent_dirs]
+    children_dirs: List[str] = [dir.strip() for dir in args.children_dirs]
     operating_systems: List[str] = ["linux", "windows"]
 
     if not os.path.exists(htb_dir):
